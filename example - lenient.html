@@ -1,0 +1,230 @@
+<script src="WikiTableOfContentsJS - lenient.min.js"></script>
+<link rel="stylesheet" href="WikiTableOfContentsJS.css">
+
+<style>
+    body {
+        background-color: #081226;
+        color: #f7f7f7;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: red;
+    }
+
+    h1 {
+        border-bottom: 1px solid;
+        font-size: 20pt;
+        margin-top: 90px;
+        padding-bottom: 5px;
+    }
+
+    h2 {
+        font-size: 18pt;
+        margin-top: 70px;
+    }
+
+    h3 {
+        font-size: 16pt;
+        margin-top: 50px;
+    }
+
+    h4 {
+        font-size: 14pt;
+        margin-top: 30px;
+    }
+
+    h5 {
+        font-size: 12pt;
+        margin-top: 10px;
+    }
+
+    h6 {
+        font-size: 10pt;
+        margin-top: 10px;
+    }
+    code {
+        background-color: rgba(255, 255, 255, 0.1);
+        line-height: 25px;
+        padding: 5px;
+    }
+</style>
+
+<script>
+    window.onload = function () {
+        goThroughHeadings();
+    }
+</script>
+
+<h1>Table of Contents</h1>
+<div class="toc list-with-sublist toc-dark-theme toc-dimensions-default"></div>
+
+<h1>WikiTableOfContentsJS</h1>
+<p>
+    The WikiTableOfContentsJS widget is a js widget that creates individual Table-of-contents.<br />
+    It does that by analyzing the HTML Code of your site and calculating the table of content, according to your headers.
+</p>
+
+<h2>Features</h2>
+<h3>Automatic Chapternumbers in Titles</h3>
+<h3>Title attributes in toc, to display to long headings</h3>
+<h3>foldable h1 in the toc</h3>
+<h3>Automatically updates Chapternumbers when a new one comes by</h3>
+<h3>Different Styles in the toc</h3>
+
+<h1>How to use it</h1>
+<p>To use the WikiTableOfContentsJS-widget, just add the wanted Files to your code, and make some slight changes to your code.</p>
+
+<h2>Step 1. Download the widget</h2>
+<p>Download the widget from its original GitHub-Repository.</p>
+
+<h2>Step 2. Add the JS File to your source-code</h2>
+<p>
+    Choose the version, you want to use and load its File into your Code with:<br />
+    <pre><code>&lt;script src="WikiTableOfContentsJS.js"&gt;&lt;/script&gt;</code></pre>
+</p>
+<p>You can choose between the different versions:</p>
+<ul>
+    <li>"WikiTableOfContentsJS - lenient.js": The code uses every heading</li>
+    <li>"WikiTableOfContentsJS - strict.js": The code uses only headings that have the class <code>toc-heading</code></li>
+    <li>"WikiTableOfContentsJS - lenient.min.js": The lenient version but minified</li>
+    <li>"WikiTableOfContentsJS - strict.min.js": The strict version but minified</li>
+</ul>
+
+<h2>Step 3. Add the CSS File to your source-code</h2>
+<p>
+    Choose the version, you want to use and load its File into your Code with:<br />
+    <pre><code>&lt;link rel="stylesheet" href="WikiTableOfContentsJS.css"&gt;</code></pre>
+</p>
+<p>You can choose between the different versions:</p>
+<ul>
+    <li>"WikiTableOfContentsJS.css": The normal readable style</li>
+    <li>"WikiTableOfContentsJS.min.css": The minified style</li>
+</ul>
+
+<h2>Step 4. Add a bit of customized code</h2>
+<h3> Create the toc-container</h3>
+<p>Add the div into your file where you want the table of content to be loaded.</p>
+<p>Do this by adding the following code to that position:</p>
+<p>
+        <pre><code>&lt;div class="toc list-with-sublist toc-light-theme"&gt;&lt;/div&gt;</code></pre>
+</p>
+<p>
+    You can use eighter the light themed toc by using the class <code>toc-light-theme</code> or you can use the dark theme with the class <code>toc-dark-theme</code><br />
+    If none of them is to your liking you can create your own class with the attributes <code>background-color</code>, <code>border-color</code> and <code>color</code> to customice the color-theme to your needs.
+</p>
+<p>
+    You can also give the toc a fixed width. for that add one of these classes to the toc-div:<br />
+    <code>toc-dimensions-default</code>, <code>toc-dimensions-30-percent</code>, <code>toc-dimensions-50-percent</code> or <code>toc-dimensions-100-percent</code>.<br />
+    Of course you can make your customized class for the dimensions which you can also make responsive.
+</p>
+<h3>Adjust the headings</h3>
+<p>If you chose the strict version you have to add the class <code>toc-heading</code> to each header you want to use.</p>
+<h3>Call the toc-creation</h3>
+<p>After your toc-container is ready, use the following code to start the toc creation at site-load:</p>
+<p>
+    <pre><code>&lt;script&gt;
+    window.onload = function () {
+        goThroughHeadings();
+    }
+&lt;/script&gt;</code></pre>
+</p>
+<p>Of course you can start the <code>goThroughHeadings()</code> function any other way as well.</p>
+
+<h2>Step 5. Enjoy your results!</h2>
+
+<h1>You can see this header in the toc</h1>
+<p>
+    You can see this header in the toc, because in this example we use the lenient version and the header doesn't need
+    the required class. Try switching the example to the strict version and see the difference.
+</p>
+
+<h1>What is it for?</h1>
+<p>The WikiTableOfContentsJS-widget is there for when you have for example a long User Manual in HTML-code and you dont want to hardcode the Table of contents.</p>
+
+<h1>You must watch out and be careful with your h1 names and don't let them get to long Otherwise you dont get the full functionality from the widget!</h1>
+<h2>You can not see this header in the toc</h2>
+<p>If your Header1 name gets to long  and gets cut in the toc, the plus sign to show underlying headers will not be visible next to the title. So you can not see the headings under this h1.</p>
+
+<h1>Default A</h1>
+<h1>Default B</h1>
+<h1>Default C</h1>
+<h1>Default D</h1>
+<h1>Default E</h1>
+<h1>Default F</h1>
+<h1>How to deal with long chapternames and h4 to h6</h1>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h3>Odit obcaecati provident temporibus cumque ut saepe iure vero quam quos commodi placeat neque, nostrum deleniti.</h3>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h6>Quam qui consequuntur unde non enim.</h6>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h5>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h5>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h4>Quam qui consequuntur unde non enim.</h4>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+
+<h1>Wrong headers</h1>
+<p>But what happens when you make the wrong headers?</p>
+<p>Well, as you can see here, it doesn't end well, but in that case it is easyli fixable by using a correct heading hi3rachy.</p>
+
+<h4>This is a fourth level header</h4>
+<p>For example when you use a h4 immediately after a h1?</p>
+
+<h3>This is a third level header</h3>
+<p>And even more, what if immediately after that, there is a h3?</p>
